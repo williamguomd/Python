@@ -306,6 +306,97 @@ def finance_test():
     
     
 #%%
+import pandas as pd
+from pandas import DataFrame
+import datetime
+from pandas_datareader import data
+
+sp500 = data.get_data_yahoo('%5EGSPC', 
+                                 start=datetime.datetime(2000, 10, 1), 
+                                 end=datetime.datetime(2012, 1, 1))
+
+print(sp500.head())
+
+#%%
+import cx_Oracle
+
+con = cx_Oracle.connect('pythonhol/welcome@127.0.0.1/orcl')
+                 
+ver = con.version.split(".")
+print(ver)
+
+
+#%%
+import json
+student = {"101":{"class":'V', "Name":'Rohit',  "Roll_no":7},
+           "102":{"class":'V', "Name":'David',  "Roll_no":8},
+           "103":{"class":'V', "Name":'Samiya', "Roll_no":12}}
+print(json.dumps(student));
+
+#%%
+
+from test import *
+
+print(username)
+str1 = 'Hello'
+str2 = str1 + ' ' + username
+print(str2)
+
+#%%
+
+a = ['today', 'is','Friday']
+
+for i, item in enumerate(a):
+    print("{i}: {item}".format(i=i, item=item));
+
+#%%
+
+filename = 'foobar.txt'
+basename, __, ext = filename.rpartition('.')
+print(basename, ext)
+
+#%%
+
+def add100(x):
+    return x + 100
+    
+hh = [11,22,33]  
+#lst = list(map(add100, hh))
+lst = [*map(add100, hh)]
+
+print(lst)
+#%%
+
+myFun = lambda a, b: a*b
+print('Result: ', myFun(2,9))
+
+#%%
+
+import numpy as np
+
+n = np.arange(0, 30, 5)
+n = n.reshape(3,2)
+
+n = n.reshape(2, 3)
+#%%
+from functools import reduce
+
+ma = reduce(lambda a, b: a if(a>b) else b, [47,11,42,100,13])
+print(ma)
+
+summ = reduce(lambda a, b: a +b, range(1, 10))
+print(summ)
+
+lst = [47,11,42,170,13]
+maxx = lst.reduce(lambda a, b: a if(a>b) else b)
+print(maxx)
+
+#%%
+
+dic = {'NT': 1, 'QC': 1, 'SK': 1, 'ON': 1}
+for k, v in dic.items():
+    print('Key: ', k, ' Value: ', v)
+#%%
 
 # Standard boilerplate to call the main() function to begin
 # the program.
