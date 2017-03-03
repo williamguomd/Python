@@ -397,6 +397,22 @@ dic = {'NT': 1, 'QC': 1, 'SK': 1, 'ON': 1}
 for k, v in dic.items():
     print('Key: ', k, ' Value: ', v)
 #%%
+#use dictionary for switch:
+def put2AB(index, value):
+    AB_List[index] = value
+def put2BC(index, value):
+    BC_List[index] = value
+...
+
+takeaction = {
+              'AB': put2AB, 
+              'BC': put2BC,
+              ...
+              }
+def put_dic2list(dics, index):
+    for k,v in dics.items():
+        takeaction[k](index, v)
+#%%
 
 # Standard boilerplate to call the main() function to begin
 # the program.
