@@ -10,19 +10,9 @@ import json
 from datetime import datetime
 from pandas import DataFrame
 
-con = cx_Oracle.connect('QA_SF/Q44UEflI@qsis.czevdjzomfkp.eu-west-1.rds.amazonaws.com:1521/siris')
-query = "select * from att_ord where ord_id like '571%'"
-query01 = """select SIRIS.ORD.ORD_ID as ORDER.ID, ATTESTOR_CONTACT.ATTESTOR_ID AS ATTESTOR.ID
-                from SIRIS.ORD
-                join SIRIS.ATT_ATT_ORD
-                on SIRIS.ORD.ORD_ID = SIRIS.ATT_ATT_ORD.ORD_ID
-                join SIRIS.ATTESTOR
-                on SIRIS.ATTESTOR.ATT_ATT_ORD_ID = SIRIS.ATT_ATT_ORD.ATT_ATT_ORD_ID
-                and SIRIS.ATTESTOR.CURRENT_STEP is null
-                join ATTESTOR_CONTACT
-                on ATTESTOR_CONTACT.ATTESTOR_ID = SIRIS.ATTESTOR.ATTESTOR_ID
-                and ATTESTOR_CONTACT.SENT_DATE < sysdate -9
-                order by ORD_ID"""
+con = cx_Oracle.connect('.......')
+query = "select * from ....'"
+query01 = """select ....."""
 
 cur = con.cursor()
 cur.execute(query01)
